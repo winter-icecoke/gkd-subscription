@@ -1,10 +1,21 @@
 name: build_release
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  # main 上的检查与格式化通过后自动构建；规则没变时构建输出 No changes，不会发版
+  workflow_run:
+    workflows: [check_fix_push]
+    types: [completed]
+    branches: [main]
+
+concurrency:
+  group: build_release
+  cancel-in-progress: false
 
 jobs:
   build_release:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     outputs:
       version: ${{ steps.version.outputs.version }}
     steps:

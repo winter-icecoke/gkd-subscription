@@ -4,12 +4,12 @@
 
 ## 环境
 
-| 项 | 值 |
-|---|---|
-| 测试手机 | OPPO Find X9 Ultra（型号 PMA110，1440×3168，ColorOS 17 / Android 17） |
-| 已配对无线调试的电脑 | 家里 Mac mini M4（`Leos-Mac-mini-M4`） |
-| GKD | `li.songe.gkd`，2026-11-04 时版本 1.12.1，HTTP 服务端口 8888 |
-| 订阅链接（GitHub） | `https://raw.githubusercontent.com/winter-icecoke/gkd-subscription/main/dist/gkd.json5` |
+| 项                   | 值                                                                                      |
+| -------------------- | --------------------------------------------------------------------------------------- |
+| 测试手机             | OPPO Find X9 Ultra（型号 PMA110，1440×3168，ColorOS 17 / Android 17）                   |
+| 已配对无线调试的电脑 | 家里 Mac mini M4（`Leos-Mac-mini-M4`）                                                  |
+| GKD                  | `li.songe.gkd`，2026-11-04 时版本 1.12.1，HTTP 服务端口 8888                            |
+| 订阅链接（GitHub）   | `https://raw.githubusercontent.com/winter-icecoke/gkd-subscription/main/dist/gkd.json5` |
 
 GitHub raw 的缓存是 `max-age=300`，推送发布后最多约 5 分钟手机才能拉到新版本。
 
@@ -17,16 +17,16 @@ GitHub raw 的缓存是 `max-age=300`，推送发布后最多约 5 分钟手机�
 
 `pnpm run debug <命令>`，实现见 [scripts/debug.ts](../scripts/debug.ts)：
 
-| 命令 | 作用 | 需要手机在线 |
-|---|---|---|
-| `connect` | 从 mDNS 自动发现无线调试端口，`adb connect` 并转发 8888 | 是 |
-| `info` | 读取 GKD 服务与设备信息，用来确认连通 | 是 |
-| `snap` | 抓当前界面快照，存到 `tmp/snapshots/<id>/`（截图 + 节点） | 是 |
-| `fetch <分享链接>` | 下载 `https://i.gkd.li/i/<编号>` 对应的快照 zip | 否 |
-| `nodes <id\|路径> [关键词]` | 打印节点树；给关键词时只看命中节点和它的祖先链 | 否 |
-| `exec <选择器> [--click]` | 在手机当前界面试跑选择器，默认只匹配不点击 | 是 |
-| `push <应用id...>` | 把 `src/apps/<应用id>.ts` 原样推成手机上的「内存订阅」 | 是 |
-| `clear` | 清空内存订阅 | 是 |
+| 命令                        | 作用                                                      | 需要手机在线 |
+| --------------------------- | --------------------------------------------------------- | ------------ |
+| `connect`                   | 从 mDNS 自动发现无线调试端口，`adb connect` 并转发 8888   | 是           |
+| `info`                      | 读取 GKD 服务与设备信息，用来确认连通                     | 是           |
+| `snap`                      | 抓当前界面快照，存到 `tmp/snapshots/<id>/`（截图 + 节点） | 是           |
+| `fetch <分享链接>`          | 下载 `https://i.gkd.li/i/<编号>` 对应的快照 zip           | 否           |
+| `nodes <id\|路径> [关键词]` | 打印节点树；给关键词时只看命中节点和它的祖先链            | 否           |
+| `exec <选择器> [--click]`   | 在手机当前界面试跑选择器，默认只匹配不点击                | 是           |
+| `push <应用id...>`          | 把 `src/apps/<应用id>.ts` 原样推成手机上的「内存订阅」    | 是           |
+| `clear`                     | 清空内存订阅                                              | 是           |
 
 `tmp/` 已被 gitignore：快照含截图和界面文字，不提交。
 

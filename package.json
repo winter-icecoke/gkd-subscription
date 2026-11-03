@@ -7,7 +7,8 @@
     "format": "prettier --cache --write --ignore-unknown .",
     "lint": "eslint --cache --fix .",
     "check": "tsc --noEmit && tsx ./scripts/check.ts",
-    "build": "tsc --noEmit && tsx ./scripts/build.ts"
+    "build": "tsc --noEmit && tsx ./scripts/build.ts",
+    "debug": "tsx ./scripts/debug.ts"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged",

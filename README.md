@@ -4,20 +4,18 @@
 
 ## 订阅地址
 
-在 GKD「订阅 → 添加订阅」里填一个即可：
-
-```txt
-https://fastly.jsdelivr.net/gh/winter-icecoke/gkd-subscription@main/dist/gkd.json5
-```
+在 GKD「订阅 → 添加订阅」里填：
 
 ```txt
 https://raw.githubusercontent.com/winter-icecoke/gkd-subscription/main/dist/gkd.json5
 ```
 
-- jsDelivr：大陆可直连，但分支链接有缓存，急用时打开 `https://purge.jsdelivr.net/gh/winter-icecoke/gkd-subscription@main/dist/gkd.json5` 和同目录的 `gkd.version.json5` 刷新缓存。
-- raw：更新及时，需要网络能访问 GitHub。
+- 首选这条 GitHub raw 链接。缓存 `max-age=300`，发布后最多约 5 分钟能拉到；手机需要能访问 GitHub。
+- 备用 jsDelivr（大陆直连）：`https://fastly.jsdelivr.net/gh/winter-icecoke/gkd-subscription@main/dist/gkd.json5`。分支链接缓存较久，急用时打开 `https://purge.jsdelivr.net/gh/winter-icecoke/gkd-subscription@main/dist/gkd.json5` 和同目录的 `gkd.version.json5` 刷新。
 
 GKD 先拉 `gkd.version.json5` 比对版本，版本变大才下载完整订阅。
+
+调试方法（在家无线调试、在外用快照链接远程加规则）见 [docs/debugging.md](docs/debugging.md)。
 
 ## 发布流程
 

@@ -21,3 +21,6 @@ lerna-debug.log*
 node_modules
 package-lock.json
 yarn.lock
+
+# 调试快照含截图与界面文字，不提交
+tmp/
